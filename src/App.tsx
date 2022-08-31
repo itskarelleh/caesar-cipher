@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import './App.css';
 import { Navbar, NavbarBrand, Container, Form} from 'react-bootstrap';
 import { caesarCipher } from './caesar-cipher/caesar-cipher';
@@ -6,7 +6,7 @@ import { caesarCipher } from './caesar-cipher/caesar-cipher';
 function App() {
 
   const [ value, setValue ] = useState("");
-  const [ shift, setShift ] = useState(5);
+  const [ shift, setShift ] = useState(25);
 
   const onChange = (e: any): void => {
     setValue(e.target.value);
@@ -24,7 +24,7 @@ function App() {
           <Form style={{ width: '75%', margin: '0 auto'}}>
             <Form.Control as="textarea" rows={4} type="text" value={value} 
             onChange={e => onChange(e)} />
-            <Form.Control type="number" min={1} defaultValue={shift} max={26} />
+            <Form.Control type="number" min={1} defaultValue={shift} max={25} />
           </Form>
           <div>
             {caesarCipher(value, shift)}
