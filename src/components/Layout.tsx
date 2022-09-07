@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import { useContext } from 'react';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import { FormDataContext } from '../context';
@@ -11,8 +11,8 @@ function Layout() {
 
     if(!isViewingResults) {
         return (
-            <Container>
-                <Row>
+            <Container className="h-100 d-flex align-items-center">
+                <Row className="m-auto">
                     <MessageForm />
                 </Row>
             </Container>
@@ -20,8 +20,8 @@ function Layout() {
     }
 
     return (
-        <Container>
-            <Row>
+        <Container className="h-100 d-flex align-items-center">
+            <Row className="m-auto">
                 <Output />
             </Row>
         </Container>

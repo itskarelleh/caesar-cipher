@@ -13,29 +13,25 @@ function caesarCipher(value: string, shift: number = 7): string {
 
         var code = value.charCodeAt(i);
         
-        //for detecting characters
-        if(isNumeric(code) || isPunctuation(code) || isMisc(code)) {
-            res += value[i];
-            continue;
-        } 
+        // if(isNumeric(code) || isPunctuation(code) || isMisc(code)) {
+        //     res += value[i];
+        //     continue;
+        // } 
         
         if(isUpperCase(code)) {
             var curr = value[i].toLowerCase();
             var newChar = doubleAlphabet[(curr.charCodeAt(0) - 97) + shift].toUpperCase();
             res += newChar;
             continue;
-        } 
-        
-        if(code > 96 && code < 123){
+        } else if(code > 96 && code < 123){
             res += doubleAlphabet[(code-97) + shift];
-        } 
-
-        if(code === 10) {
+        } else if(code === 10) {
             res += "<br />";
+        } else {
+            res += value[i];
         }
     }
-
-
+    
     value = res;
 
     return value;

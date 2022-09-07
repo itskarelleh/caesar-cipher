@@ -2,12 +2,11 @@ import React, { useContext } from 'react';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
+import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import { FormDataContext } from '../context';
-import Layout from './Layout';
-import { Col } from 'react-bootstrap';
 import { caesarCipher } from '../caesar-cipher/caesar-cipher';
-
+import Header from './Header';
 
 function ShiftInput() {
 
@@ -20,17 +19,17 @@ function ShiftInput() {
             <Row>
                 <Col xs={6}>
                   <div className="d-inline-flex">
-                        <Button onClick={decrement}>
+                        <Button variant="info" size="sm" onClick={decrement}>
                             <i className="bi bi-dash"></i>
                         </Button>
                         <Form.Control type="number" min={1} value={shift} />
-                        <Button onClick={increment}>
+                        <Button variant="info" size="sm" onClick={increment}>
                             <i className="bi bi-plus"></i>
                         </Button>
                     </div>
                 </Col>
                 <Col xs={6}>
-                    <span className="d-inline-flex" style={{ width: '100%', justifyContent: "space-evenly"}}>
+                    <span className="d-inline-flex" style={{ width: '100%', justifyContent: "space-evenly", fontWeight: 700 }}>
                         <p>a</p><i className="bi bi-arrow-right"></i> <p className="text-primary">{caesarCipher("a", shift)}</p>
                     </span>
                 </Col>
@@ -46,29 +45,25 @@ function MessageForm() {
 
     return (
         <>
-            <Col xs={12} md={6}>
-                <header style={{ textAlign: "center"}}>
-                    <h2 className="h2">Let's Get Started</h2>
-                    <h4 className="h4">Write a message that you want encrypted</h4>
-                </header>
-               
+            <Col xs={12} sm={6}>
+                <Header title="Let's Encrypt a Message" subtitle="Write some text" />
             </Col>
-            <Col xs={12} md={6}>
-            <Form>
-                <Form.Group>
-                    {error && <p className='text-danger'>Textbox is empty.</p>}
-                    <Form.Label>1. Write some text</Form.Label>
-                    <Form.Control required as="textarea" rows={4} type="text" value={input}
-                    placeholder="The brown cow has speckled spots..."
-                    onChange={handleInputChange} />
-                </Form.Group>
-                <Form.Group>
-                    <ShiftInput />
-                </Form.Group>
-                <Button style={{width: '100%'}} onClick={submit}> 
-                    3. Encrypt
-                </Button>
-            </Form>
+            <Col xs={12} sm={6}>
+                <Form>
+                    <Form.Group>
+                        {error && <p className='text-danger'>Textbox is empty.</p>}
+                        <Form.Label>1. Write some text</Form.Label>
+                        <Form.Control required as="textarea" rows={8} type="text" value={input}
+                        placeholder="The brown cow has speckled spots..."
+                        onChange={handleInputChange} />
+                    </Form.Group>
+                    <Form.Group id="shifting-controls">
+                        <ShiftInput />
+                    </Form.Group>
+                    <Button className="mt-3" variant="dark" style={{width: '100%'}} onClick={submit}> 
+                        3. Encrypt
+                    </Button>
+                </Form>
             </Col>
         </>
     )
