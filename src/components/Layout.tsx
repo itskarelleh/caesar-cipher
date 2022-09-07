@@ -12,7 +12,7 @@ function Layout() {
     if(!isViewingResults) {
         return (
             <Container className="h-100 d-flex align-items-center">
-                <Row className="m-auto">
+                <Row className="m-auto w-100">
                     <MessageForm />
                 </Row>
             </Container>
@@ -21,7 +21,7 @@ function Layout() {
 
     return (
         <Container className="h-100 d-flex align-items-center">
-            <Row className="m-auto">
+            <Row className="m-auto w-100">
                 <Output />
             </Row>
         </Container>
