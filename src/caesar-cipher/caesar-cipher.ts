@@ -1,6 +1,9 @@
-import { ALPHABET } from "../constants";
-import { isNumeric, isPunctuation, isUpperCase, isMisc
-} from './helpers';
+const ALPHABET: string[] = [...Array(26)].map((_, i) => String.fromCharCode(i + 97));
+
+function isUpperCase(code : number): boolean {
+    if(code > 64 && code < 91) return true;
+    return false;
+}
 
 function caesarCipher(value: string, shift: number = 7): string {
 
@@ -12,11 +15,6 @@ function caesarCipher(value: string, shift: number = 7): string {
     for(var i = 0; i <= value.length - 1; i++) {
 
         var code = value.charCodeAt(i);
-        
-        // if(isNumeric(code) || isPunctuation(code) || isMisc(code)) {
-        //     res += value[i];
-        //     continue;
-        // } 
         
         if(isUpperCase(code)) {
             var curr = value[i].toLowerCase();
