@@ -1,7 +1,7 @@
 # Caesar Cipher
 
 ## Description
-This single-page app allows the user to write a body of text and encrypt it with Caesar Cipher, one fo the most easy and famous encryption systems. Each letter of a given text is replaced by a letter with a fixed number of positions down the alphabet. For example, a shift of 5 would replace any and all "A's" with the letter "F".
+This single-page app allows the user to write a body of text and encrypt it with Caesar Cipher, one fo the easiest and most famous encryption encryption systems. Each letter of a given text is replaced by a letter with a fixed number of positions down the alphabet. For example, a shift of 5 would replace any and all "A's" with the letter "F".
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
